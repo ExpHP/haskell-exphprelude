@@ -6,6 +6,7 @@ module CorePrelude
       -- ** Operators
       (Prelude.$)
     , (Prelude.$!)
+    , (&)
     , (Prelude.&&)
     , (Prelude.||)
     , (Control.Category..)
@@ -133,6 +134,7 @@ module CorePrelude
     , Control.Applicative.Applicative (..)
     , (Control.Applicative.<$>)
     , (Control.Applicative.<|>)
+    , (<&>)
       -- ** Monad
     , (Control.Monad.>=>)
       -- ** Transformers
@@ -262,6 +264,18 @@ infixr 6 <>
 {-# INLINE (<>) #-}
 
 #endif
+
+
+-- | Flipped version of '$'
+infixl 1 &
+(&) :: a -> (a -> b) -> b
+(&) = Data.Function.flip (Data.Function.$)
+
+-- | Flipped version of '<$>'
+infixl 5 <&>
+(<&>) :: Control.Monad.Functor f => f a -> (a -> b) -> f b
+(<&>) = Data.Function.flip (<$>)
+
 
 equating :: Eq a => (b -> a) -> b -> b -> Bool
 equating = Data.Function.on (Prelude.==)
