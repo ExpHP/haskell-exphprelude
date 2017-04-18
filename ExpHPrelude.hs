@@ -13,6 +13,7 @@ module ExpHPrelude
   , module Data.List
   , module Control.Monad
   , module Debug.Trace
+  , module Data.Function
 
     -- ** Folds and traversals
   , Foldable
@@ -101,6 +102,7 @@ module ExpHPrelude
 
     -- * Extra
   , traceWith
+  , (<&>)
   ) where
 
 import CorePrelude
@@ -146,6 +148,7 @@ import Control.Monad hiding
 -- every time you're done using them.
 import Debug.Trace (trace, traceShow, traceStack, traceIO, traceShowId)
 
+import Data.Function ((&))
 import Data.Foldable (Foldable(..), elem, maximum, minimum)
 import Data.Traversable (Traversable(..))
 import qualified Data.Text as Text
@@ -265,3 +268,8 @@ readMay = Safe.readMay . Text.unpack
 -- | A generalization of 'traceShowId', such that @traceShowId = traceWith id@.
 traceWith :: (Show b)=> (a -> b) -> a -> a
 traceWith f x = traceShow (f x) x
+
+-- | Flipped version of '<$>'
+infixl 5 <&>
+(<&>) :: Functor f => f a -> (a -> b) -> f b
+(<&>) = flip (<$>)
