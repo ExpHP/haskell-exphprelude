@@ -269,4 +269,11 @@ ioError = P.ioError
 userError = P.userError
 -- catch = P.catch -- deprecated
 
+trace = P.trace             :: String -> a -> a
+traceShow = P.traceShow     :: (P.Show a)=> a -> b -> b
+traceStack = P.traceStack   :: String -> a -> a
+traceIO = P.traceIO         :: String -> IO ()
+traceShowId = P.traceShowId :: (P.Show a)=> a -> a
+traceWith = P.traceWith     :: (P.Show b)=> (a -> b) -> a -> a
+
 main = pure ()
