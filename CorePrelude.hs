@@ -6,7 +6,7 @@ module CorePrelude
       -- ** Operators
       (Prelude.$)
     , (Prelude.$!)
-    , (&)
+    , (Data.Function.&)
     , (Prelude.&&)
     , (Prelude.||)
     , (Control.Category..)
@@ -265,11 +265,6 @@ infixr 6 <>
 
 #endif
 
-
--- | Flipped version of '$'
-infixl 1 &
-(&) :: a -> (a -> b) -> b
-(&) = Data.Function.flip (Data.Function.$)
 
 -- | Flipped version of '<$>'
 infixl 5 <&>
