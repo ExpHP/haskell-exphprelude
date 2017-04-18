@@ -135,6 +135,10 @@ lcm = P.lcm
 fromIntegral = P.fromIntegral
 realToFrac = P.realToFrac
 
+-- FIXME what else from applicative is there?
+(<*>) = (P.<*>)
+pure = P.pure
+
 (>>=) = (P.>>=)
 (>>) = (P.>>)
 return = P.return
@@ -264,3 +268,5 @@ type IOError = P.IOError
 ioError = P.ioError
 userError = P.userError
 -- catch = P.catch -- deprecated
+
+main = pure ()
