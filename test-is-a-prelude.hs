@@ -1,7 +1,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE NoMonomorphismRestriction #-}
 
-import qualified BasicPrelude as P
+import qualified ExpHPrelude as P
 
 type Bool = P.Bool
 _True = P.True
@@ -187,6 +187,7 @@ concat = P.concat
 concatMap = P.concatMap
 maximum = P.maximum
 minimum = P.minimum
+toList = P.toList
 
 scanl = P.scanl
 scanl1 = P.scanl1
@@ -263,4 +264,3 @@ type IOError = P.IOError
 ioError = P.ioError
 userError = P.userError
 -- catch = P.catch -- deprecated
-

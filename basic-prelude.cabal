@@ -20,7 +20,7 @@ build-type:          Simple
 cabal-version:       >=1.8
 
 library
-  exposed-modules:     BasicPrelude, CorePrelude
+  exposed-modules:     ExpHPrelude, CorePrelude
   build-depends:       base                     >= 4.6     && < 5
                      , hashable
                      , bytestring
