@@ -276,4 +276,9 @@ traceIO = P.traceIO         :: String -> IO ()
 traceShowId = P.traceShowId :: (P.Show a)=> a -> a
 traceWith = P.traceWith     :: (P.Show b)=> (a -> b) -> a -> a
 
+(***) = (P.***)
+(&&&) = (P.&&&)
+(<<<) = (P.<<<)
+(>>>) = (P.>>>)
+
 main = pure ()

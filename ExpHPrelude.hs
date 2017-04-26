@@ -14,6 +14,7 @@ module ExpHPrelude
   , module Control.Monad
   , module Debug.Trace
   , module Data.Function
+  , module Control.Arrow
 
     -- ** Folds and traversals
   , Foldable
@@ -42,7 +43,6 @@ module ExpHPrelude
     -- * Enhanced exports
     -- ** Simpler name for a typeclassed operation
   , map
-  , empty
   , (++)
   , concat
   , intercalate
@@ -148,6 +148,7 @@ import Control.Monad hiding
 -- every time you're done using them.
 import Debug.Trace (trace, traceShow, traceStack, traceIO, traceShowId)
 
+import Control.Arrow ((>>>), (<<<))
 import Data.Function ((&))
 import Data.Foldable (Foldable(..), elem, maximum, minimum)
 import Data.Traversable (Traversable(..))
@@ -163,11 +164,6 @@ import qualified Safe
 -- | > map = fmap
 map :: (Functor f) => (a -> b) -> f a -> f b
 map = fmap
-
--- | > empty = mempty
-empty :: Monoid w => w
-empty = mempty
-{-# DEPRECATED empty "Use mempty" #-}
 
 infixr 5 ++
 
