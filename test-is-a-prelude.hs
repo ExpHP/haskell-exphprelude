@@ -286,4 +286,10 @@ type NFData = P.NFData
 ($!!) = (P.$!!)
 (deepseq) = P.deepseq
 
+
+(<|>) = (P.<|>)     :: P.Alternative f => f a -> f a -> f a
+empty = P.empty     :: P.Alternative f => f a
+(*>) = (P.*>)       :: P.Applicative f => f a -> f b -> f b
+(<*) = (P.<*)       :: P.Applicative f => f a -> f b -> f a
+
 main = pure ()

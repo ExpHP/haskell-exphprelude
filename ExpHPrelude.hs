@@ -15,6 +15,7 @@ module ExpHPrelude
   , module Debug.Trace
   , module Data.Function
   , module Control.Arrow
+  , module Control.Applicative
   , module Control.DeepSeq
 
     -- ** Folds and traversals
@@ -151,6 +152,7 @@ import Debug.Trace (trace, traceShow, traceStack, traceIO, traceShowId)
 
 import Control.DeepSeq(deepseq, ($!!), NFData(..), force)
 
+import Control.Applicative (Alternative, empty)
 import Control.Arrow ((>>>), (<<<))
 import Data.Function ((&))
 import Data.Foldable (Foldable(..), elem, maximum, minimum)
