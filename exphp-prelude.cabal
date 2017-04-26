@@ -19,6 +19,7 @@ library
                      , basic-prelude
                      , text
                      , safe
+                     , deepseq
 
 source-repository head
   type:     git

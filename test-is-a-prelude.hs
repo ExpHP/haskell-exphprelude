@@ -1,3 +1,4 @@
+{-# LANGUAGE ConstraintKinds #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE NoMonomorphismRestriction #-}
 
@@ -280,5 +281,9 @@ traceWith = P.traceWith     :: (P.Show b)=> (a -> b) -> a -> a
 (&&&) = (P.&&&)
 (<<<) = (P.<<<)
 (>>>) = (P.>>>)
+
+type NFData = P.NFData
+($!!) = (P.$!!)
+(deepseq) = P.deepseq
 
 main = pure ()

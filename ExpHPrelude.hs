@@ -15,6 +15,7 @@ module ExpHPrelude
   , module Debug.Trace
   , module Data.Function
   , module Control.Arrow
+  , module Control.DeepSeq
 
     -- ** Folds and traversals
   , Foldable
@@ -148,6 +149,8 @@ import Control.Monad hiding
 -- every time you're done using them.
 import Debug.Trace (trace, traceShow, traceStack, traceIO, traceShowId)
 
+import Control.DeepSeq(deepseq, ($!!), NFData(..), force)
+
 import Control.Arrow ((>>>), (<<<))
 import Data.Function ((&))
 import Data.Foldable (Foldable(..), elem, maximum, minimum)
@@ -269,3 +272,9 @@ traceWith f x = traceShow (f x) x
 infixl 5 <&>
 (<&>) :: Functor f => f a -> (a -> b) -> f b
 (<&>) = flip (<$>)
+
+-- I'm considering this, but I'm not sure how reliable it actually is
+--  for arbitrary monads.
+-- -- | Force a monad's contents to be fully evaluated before
+-- forceM :: (NFData a, Monad m)=> m a -> m a
+-- forceM = (>>= (pure $!!))
