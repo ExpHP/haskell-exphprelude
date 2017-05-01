@@ -1,7 +1,7 @@
 exphp-prelude
 =============
 
-it's a prelude
+it's a prelude, forked from [basic-prelude](github.com/snoyberg/basic-prelude)
 
 this saves me about ~8 or so lines of import statements per module
 
