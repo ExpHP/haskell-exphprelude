@@ -1,18 +1,11 @@
-basic-prelude
+exphp-prelude
 =============
 
-The premise of `basic-prelude` is that there are a lot of very commonly desired
-features missing from the standard `Prelude`, such as commonly used operators
-(`<$>` and `>=>`, for instance) and imports for common datatypes (e.g.,
-`ByteString` and `Vector`). At the same time, there are lots of other
-components which are more debatable, such as providing polymorphic versions of
-common functions.
+it's a prelude
 
-So `basic-prelude` is intended to give a common foundation for a number of
-alternate preludes. The package provides two modules: `CorePrelude` provides
-the common ground for other preludes to build on top of, while `BasicPrelude`
-exports `CorePrelude` together with commonly used list functions to provide a
-drop-in replacement for the standard `Prelude`.
+this saves me about ~8 or so lines of import statements per module
 
-Users wishing to have an improved `Prelude` can use `BasicPrelude`. Developers
-wishing to create a new prelude should use `CorePrelude`.
+kinda disappointing really; it's the best we can do without the
+ability to reexport qualified imports
+
+`_/o\_`
